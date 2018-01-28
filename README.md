@@ -1,4 +1,4 @@
-# react-websokkit :cyclone: :electric_plug:: 
+# react-websokkit :cyclone: :electric_plug:
 [![license](https://img.shields.io/github/license/mmckeaveney/react-websokkit.svg)](https://github.com/mmckeaveney/react-websokkit/blob/master/LICENSE)
 
 

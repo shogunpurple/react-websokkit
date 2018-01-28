@@ -39,8 +39,11 @@ class ReactSokkit extends Component {
 
     this.client.connect({}, () => {
       subscriptions.forEach(
-        url => this.client.subscribe(url, this.onSuccess),
-        error => this.setState({ data: { error } })
+        (url) => this.client.subscribe(
+          url, 
+          this.onSuccess,
+          error => this.setState({ data: { error } })
+        )
       );
     });
   }
