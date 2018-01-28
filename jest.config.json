@@ -1,0 +1,7 @@
+{
+  "modulePaths": ["src"],
+  "transformIgnorePatterns": [],
+  "verbose": true,
+  "testMatch": ["**/__tests__/**/*.spec.js"],
+  "setupFiles": ["<rootDir>/__tests__/setup.js"]
+}

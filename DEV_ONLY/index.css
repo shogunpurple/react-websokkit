@@ -1,0 +1,123 @@
+:root {
+  --primary-color: blue;  
+  --secondary-color: purple;
+  --tertiary-color: yellow;
+  --navbar-font-family: "Goudy Bookletter 1911", sans-serif;
+}
+
+.dark-theme {
+  --primary-color: darkgreen;  
+  --secondary-color: #181717;
+  --tertiary-color: #3104fd;
+}
+
+.light-theme {
+  --primary-color: skyblue;  
+  --secondary-color: palevioletred;
+  --tertiary-color: lightyellow;
+}
+
+.navbar {
+    background-color: var(--primary-color);
+    height: 60px;
+    margin-bottom: 0px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    display: block;
+    padding: 20px;
+    color: var(--navbar-a-color);
+    text-decoration: none;
+    font-family: var(--navbar-font-family);
+}
+
+.navbar li a:hover {
+    color: var(--tertiary-color);
+}
+
+.main-content-area {
+    background-color: var(--primary-color);
+    text-align: center;
+}
+
+.main-content-area h1 {
+    color: var(--primary-color);
+    padding-top: 30px;
+}
+
+.main-content-area p {
+    font-family: var(--navbar-font-family);
+    color: var(--secondary-color);
+    padding-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.grid-area h2 {
+    color: var(--secondary-color);
+    text-align: left;
+}
+
+.grid-section {
+    display: inline-flex;
+    background-color: var(--tertiary-color);
+}
+
+.grid-section p {
+ color: var(--secondary-color);
+}
+
+.grid-unit {
+    text-align: center;
+}
+
+.theme-it-controls {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+}
+
+.selector {
+    width: 700px;
+    height: 50px;
+    box-shadow: 0.5px 0.5px 0.5px #ccc;
+    font-size: 20px;
+}
+
+
+.color-chooser {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    align-items: center;
+}
+
+.color-chooser input {
+    margin-left: 10px;
+}
+
+.theme-it-controls button {
+    width: 100px
+}
+
+.create-theme {
+    padding: 20px;
+}
+
+.current-themes button {
+    margin: 10px;
+}
