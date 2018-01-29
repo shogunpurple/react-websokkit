@@ -1,5 +1,7 @@
 # react-websokkit :electric_plug:
 [![license](https://img.shields.io/github/license/mmckeaveney/react-websokkit.svg)](https://github.com/mmckeaveney/react-websokkit/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/v/react-websokkit.svg)](https://www.npmjs.com/package/react-websokkit)
+
 
 
 A declarative Render Prop Component and Higher Order Component (HOC) for react which deals with websockets and the [STOMP subprotocol](https://stomp.github.io/) in a flexible way. Inspired by the excellent [react-apollo.](https://github.com/apollographql/react-apollo) 
