@@ -28,6 +28,11 @@ const App = () => (
   <div>
     <Sokkit {...SOKKIT_CONFIG} render={WebSocketAware} />
     <HOCSokkit />
+    <HOCSokkit />
+    <HOCSokkit />
+    <HOCSokkit />
+    <HOCSokkit />
+    <HOCSokkit />
   </div>
 );
 
