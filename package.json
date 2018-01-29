@@ -33,6 +33,7 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
+    "net": "^1.0.2",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

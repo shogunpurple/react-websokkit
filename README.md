@@ -34,6 +34,10 @@ yarn add react-websokkit
 ## Basic Usage
 There are 2 main ways to use react-websokkit. You can either make use of the [render prop](https://reactjs.org/docs/render-props.html) component, or the [HOC (Higher Order Component)](https://reactjs.org/docs/higher-order-components.html). Both do the same thing, however they have a slightly different API.
 
+Importing from `react-websokkit` will by default import the unminified, transpiled ES5 code into your application which you can then bundle yourself. 
+
+If you want to pull in the already minified, production bundle, you will need to import from `react-websokkit/dist/react-websokkit.js`, or create an alias in your bundler configuration. 
+
 ### Render Prop Component
 ---
 
