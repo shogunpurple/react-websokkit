@@ -22,16 +22,11 @@ const WebSocketAware = ({ data: { error, response }, send }) => {
   );
 } 
 
-const HOCSokkit = withSokkit(SOKKIT_CONFIG, WebSocketAware);
+const HOCSokkit = withSokkit(SOKKIT_CONFIG)(WebSocketAware);
 
 const App = () => (
   <div>
     <Sokkit {...SOKKIT_CONFIG} render={WebSocketAware} />
-    <HOCSokkit />
-    <HOCSokkit />
-    <HOCSokkit />
-    <HOCSokkit />
-    <HOCSokkit />
     <HOCSokkit />
   </div>
 );

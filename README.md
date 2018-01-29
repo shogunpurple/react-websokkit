@@ -1,8 +1,8 @@
-# react-websokkit :cyclone: :electric_plug:
+# react-websokkit :electric_plug:
 [![license](https://img.shields.io/github/license/mmckeaveney/react-websokkit.svg)](https://github.com/mmckeaveney/react-websokkit/blob/master/LICENSE)
 
 
-A declarative Render Prop Component and Higher Order Component (HOC) for react which deals with websockets and the STOMP protocol in a declarative, flexible way. Inspired by the excellent [react-apollo.](https://github.com/apollographql/react-apollo) 
+A declarative Render Prop Component and Higher Order Component (HOC) for react which deals with websockets and the [STOMP subprotocol](https://stomp.github.io/) in a flexible way. Inspired by the excellent [react-apollo.](https://github.com/apollographql/react-apollo) 
 
 - [react-websokkit](#react-websokkit)
     - [Rationale](#rationale)
@@ -32,8 +32,74 @@ yarn add react-websokkit
 ```
 
 ## Basic Usage
+There are 2 main ways to use react-websokkit. You can either make use of the [render prop](https://reactjs.org/docs/render-props.html) component, or the [HOC (Higher Order Component)](https://reactjs.org/docs/higher-order-components.html). Both do the same thing, however they have a slightly different API.
 
-## API
+### Render Prop Component
+---
+
+
+#### Props
+`url` : *String* - The url of the websocket server you want to connect to.
+
+`subscriptions` : *String[]* - The STOMP topics you want the component to subscribe to. 
+
+`render` : *(props) => JSX.Element* - The render prop is what you want to render. All the websocket related props (data, error) will be passed down to your component.  
+
+```javascript
+import React, { Component } from "react";
+import Socket from "react-websokkit";
+
+const Foo = () => {
+    return (
+        <Socket 
+            url={"url/to/websocket/server"}
+            subscriptions={["/some/topic"]}
+            render={({ data: { response, error }, send }) => {
+                return (
+                    <span> Data: { response && response }</span>
+                    <span> Error: { error && error }</span>
+                    <button onClick={() => send("some/topic", { name: "hey" })}>
+                );
+            }} 
+        />
+    )
+}
+
+export default Foo;
+
+```
+
+
+### Higher Order Component 
+---
+
+#### Props
+The higher order component takes the same props as the render prop component, but in an object. See the example below.
+
+```javascript
+import React, { Component } from "react";
+import { withSokkit } from "react-websokkit";
+
+const Foo = ({ data: { response, error }, send }) => {
+    return (
+        <span> Data: { response && response }</span>
+        <span> Error: { error && error }</span>
+        <button onClick={() => send("some/topic", { name: "hey" })}>
+    );
+}
+
+export default withSokkit({
+    url: "url/to/websocket/server",
+    subscriptions: ["/some/topic"]
+})(Foo);
+
+```
+#### Props passed down by React Websokkit  
+When you render a component using `react-websokkit`, you will be provided with some props. Every time data is pushed through the websocket to your component, it will cause a state update and re-render. These are as follows.
+
+`data` : *Object* - Contains either a `response` or `error` key based on whether or not there was a failure when data was pushed through the websocket on the subscribed topics.
+
+`send` : *(topic: String, payload: Object | String) => void* - This function allows you to send data **to** the server on a STOMP topic over a websocket from inside your component.   
 
 ## Development
 
@@ -41,7 +107,7 @@ Clone the repo and install dependencies with your favourite package manager. The
 
 * `build:minified` => builds and minifies the code and outputs a production ready bundle
 * `clean` => blows away build folders (`lib`, `dist`) for a clean build
-* `dev` => runs a `parcel` development server with hot reloading for development. Access the development playground at `localhost:1234`  
+* `dev` => runs a `webpack` development server with hot reloading for development. Access the development playground at `localhost:8081`  
 * `prepublish` => runs `prepublish:compile` when executing a `npm publish` 
 * `prepublish:compile` => run `clean`, `transpile` and then `build:minified` 
 * `test` => runs the jest test suite. 
